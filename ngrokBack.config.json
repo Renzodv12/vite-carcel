@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "ngrokBackend",
+      "script": "ngrok",
+      "args": "http 3001"
+    }
+  ]
+}
