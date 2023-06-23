@@ -10,6 +10,8 @@ import Proveedor from "../components/Comedor/Proveedor.vue";
 import Fallecimientos from "../components/Fallecimientos/Fallecimientos.vue";
 import Incidencias from "../components/Fallecimientos/Incidencias.vue";
 import Personas from "../components/Guardias/Personas.vue";
+
+import Asignar from "../components/Guardias/Asignar.vue";
 import Asistencias from "../components/Pabellones/Asistencias.vue";
 import Celdas from "../components/Pabellones/Celdas.vue";
 import Pabellones from "../components/Pabellones/Pabellones.vue";
@@ -120,6 +122,11 @@ const routes = [
     path: "/personas",
     name: "Personas",
     component: Personas,
+  },
+  {
+    path: "/asignar",
+    name: "Asignar",
+    component: Asignar,
   },
 ];
 

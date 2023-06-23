@@ -155,6 +155,15 @@ export default {
           }
 
         },
+               {
+          label: 'Asignar',
+          icon: 'pi pi-sitemap',
+          command: () => {
+            this.$router.push("/Asignar")
+          }
+
+        },
+     
      
         
         

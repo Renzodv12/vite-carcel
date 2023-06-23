@@ -26,7 +26,7 @@
         <label for="fechaNacimiento">Fecha de Nacimiento:</label>
         <input type="date" class="form-control" id="fechaNacimiento" v-model="persona.fechaNacimiento">
       </div>
-      <div class="text-center">
+      <div class="text-center mt-3">
         <button class="btn btn-primary mr-2" @click="registrar">Registrar</button>
         <button class="btn btn-secondary" @click="cancelar">Cancelar</button>
       </div>
