@@ -9,6 +9,7 @@ import NewMenu from "../components/Comedor/NewMenu.vue";
 import Proveedor from "../components/Comedor/Proveedor.vue";
 import Fallecimientos from "../components/Fallecimientos/Fallecimientos.vue";
 import Incidencias from "../components/Fallecimientos/Incidencias.vue";
+import AsignarTrabajo from "../components/Guardias/AsignarTrabajo.vue";
 import Personas from "../components/Guardias/Personas.vue";
 
 import Asignar from "../components/Guardias/Asignar.vue";
@@ -127,6 +128,11 @@ const routes = [
     path: "/asignar",
     name: "Asignar",
     component: Asignar,
+  },
+  {
+    path: "/asignartrabajo",
+    name: "AsignarTrabajo",
+    component: AsignarTrabajo,
   },
 ];
 

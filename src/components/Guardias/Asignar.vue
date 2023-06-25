@@ -26,8 +26,8 @@
           <option value="C">Pabellón C</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="dias">Días:</label>
+      <div class="form-group mt-3 mb-3 ">
+        <label class="mr-3" for="dias">Días:</label>
         <el-select v-model="selectedDias" multiple placeholder="Selecciona uno o varios elementos">
           <el-option v-for="item in diasOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
         </el-select>

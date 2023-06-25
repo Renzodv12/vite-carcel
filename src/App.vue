@@ -17,18 +17,18 @@
 
           <Button type="button" label="Pabellones" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu"
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 " />
-          
-            <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
-          
-            <Button type="button" label="Menu" @click="toggleM" aria-haspopup="true" aria-controls="overlay_tmenu"
-            class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 " />
-          
-            <TieredMenu ref="menuM" id="overlay_tmenu" :model="itemsM" popup />
 
-              <Button type="button" label="Guardia" @click="toggleG" aria-haspopup="true" aria-controls="menuguardia"
+          <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
+
+          <Button type="button" label="Menu" @click="toggleM" aria-haspopup="true" aria-controls="overlay_tmenu"
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 " />
-          
-            <TieredMenu ref="menuG" id="menuguardia" :model="itemsG" popup />
+
+          <TieredMenu ref="menuM" id="overlay_tmenu" :model="itemsM" popup />
+
+          <Button type="button" label="Guardia" @click="toggleG" aria-haspopup="true" aria-controls="menuguardia"
+            class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 " />
+
+          <TieredMenu ref="menuG" id="menuguardia" :model="itemsG" popup />
 
           <router-link to="/fallecimientos"
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Fallecimientos</router-link>
@@ -140,8 +140,8 @@ export default {
           }
 
         },
-        
-        
+
+
 
 
       ],
@@ -155,18 +155,25 @@ export default {
           }
 
         },
-               {
+        {
           label: 'Asignar',
           icon: 'pi pi-sitemap',
           command: () => {
             this.$router.push("/Asignar")
           }
+        },
+        {
+          label: 'Asignar Trabajo ',
+          icon: 'pi pi-sitemap',
+          command: () => {
+            this.$router.push("/Asignartrabajo")
+          }
 
         },
-     
-     
-        
-        
+
+
+
+
 
 
       ]
