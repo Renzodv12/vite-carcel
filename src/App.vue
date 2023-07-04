@@ -170,6 +170,23 @@ export default {
           }
 
         },
+        {
+          label: 'Reporte de Guardias',
+          icon: 'pi pi-sitemap',
+          command: () => {
+            this.$router.push("/ReportGuardia")
+          }
+
+        },
+        {
+          label: 'Reporte de Prisionero',
+          icon: 'pi pi-sitemap',
+          command: () => {
+            this.$router.push("/ReportPrisionero")
+          }
+
+        },
+
 
 
 

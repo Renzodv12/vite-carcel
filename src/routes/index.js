@@ -9,10 +9,11 @@ import NewMenu from "../components/Comedor/NewMenu.vue";
 import Proveedor from "../components/Comedor/Proveedor.vue";
 import Fallecimientos from "../components/Fallecimientos/Fallecimientos.vue";
 import Incidencias from "../components/Fallecimientos/Incidencias.vue";
+import Asignar from "../components/Guardias/Asignar.vue";
 import AsignarTrabajo from "../components/Guardias/AsignarTrabajo.vue";
 import Personas from "../components/Guardias/Personas.vue";
-
-import Asignar from "../components/Guardias/Asignar.vue";
+import ReportGuardia from '../components/Guardias/ReportGuardia.vue';
+import ReportPrisionero from "../components/Guardias/ReportPrisionero.vue";
 import Asistencias from "../components/Pabellones/Asistencias.vue";
 import Celdas from "../components/Pabellones/Celdas.vue";
 import Pabellones from "../components/Pabellones/Pabellones.vue";
@@ -134,6 +135,17 @@ const routes = [
     name: "AsignarTrabajo",
     component: AsignarTrabajo,
   },
+  {
+    path: "/ReportGuardia",
+    name: ReportGuardia,
+    component: ReportGuardia,
+  },
+  {
+    path: "/ReportPrisionero",
+    name: ReportPrisionero,
+    component: ReportPrisionero,
+  },
+
 ];
 
 const router = createRouter({
