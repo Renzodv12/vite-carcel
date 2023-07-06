@@ -29,7 +29,9 @@
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 " />
 
           <TieredMenu ref="menuG" id="menuguardia" :model="itemsG" popup />
-
+          <Button type="button" label="Visitas" @click="toggleVisita" aria-haspopup="true" aria-controls="overlay_tmenuV"
+            class="hidden md:block font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900" />
+          <TieredMenu ref="menuVISITA" id="overlay_tmenuV" :model="itemsVISITA" popup />
           <router-link to="/fallecimientos"
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Fallecimientos</router-link>
           <router-link to="/condenas"
@@ -39,8 +41,6 @@
 
           <router-link to="/Incidencias"
             class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Incidencias</router-link>
-          <router-link to="/Visitas"
-            class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Visitas</router-link>
           <!--<router-link to="/fallecimientos"></router-link>
               </router-link>class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Fallecimientos</router-link>
             <router-link to="/fallecimientos"
@@ -145,7 +145,29 @@ export default {
 
 
       ],
-
+      itemsVISITA: [
+        {
+          label: "Visita",
+          icon: "pi pi-sitemap",
+          command: () => {
+            this.$router.push("/Visitas");
+          },
+        },
+        {
+          label: "Eventos",
+          icon: "pi pi-sitemap",
+          command: () => {
+            this.$router.push("/Eventos");
+          },
+        },
+        {
+          label: "Reporte de Visitas",
+          icon: "pi pi-sitemap",
+          command: () => {
+            this.$router.push("/ReportVisitas");
+          },
+        },
+      ],
       itemsG: [
         {
           label: 'Personas',
@@ -205,6 +227,9 @@ export default {
     },
     toggleG(event) {
       this.$refs.menuG.toggle(event);
+    },
+    toggleVisita() {
+      this.$refs.menuVISITA.toggle(event);
     },
     clickB() {
       this.$router.push('/')

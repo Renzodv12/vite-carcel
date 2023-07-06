@@ -1,123 +1,80 @@
 <template>
-    <div class="flex justify-center items-start h-screen pt-8">
-        <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-7xl">
-            <h2 class="text-center text-2xl font-bold mb-8">Visitas</h2>
-            <!--<div class="flex items-center justify-between mb-4">
-                <div class="w-1/2 mr-2">
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="search" type="text" placeholder="Buscar pabellón" v-model="searchTerm">
-                </div>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" @click="agregarCeldas">
-                    Agregar
-                </button>
-            </div>
-            <table class="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-2">Nombre</th>
-                        <th class="px-4 py-2">Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="pabellon in paginatedPabellones" :key="pabellon.id">
-                        <td class="border px-4 py-2 text-center">{{ pabellon.nombre }}</td>
-                        <td class="border px-4 py-2 text-center">{{ pabellon.descripcion }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="flex justify-between mt-4">
-                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded justify-start"
-                    :disabled="currentPage === 1" @click="goToPage(currentPage - 1)">
-                    Anterior
-                </button>
-                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded justify-end"
-                    :disabled="currentPage === totalPages" @click="goToPage(currentPage + 1)">
-                    Siguiente
-                </button>
-            </div>-->
-        </div>
-    </div>
+  <div class="container mt-4">
+    <h2>Formulario de Visita</h2>
+    <form @submit.prevent="guardarVisita">
+      <div class="form-group">
+        <label for="ci">CI:</label>
+        <input type="text" class="form-control" id="ci" v-model="visita.ci" required>
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" class="form-control" id="nombre" v-model="visita.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" class="form-control" id="fechaNacimiento" v-model="visita.fechaNacimiento" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" id="direccion" v-model="visita.direccion" required>
+      </div>
+      <div class="form-group">
+        <label for="prisionero">Prisionero a Visitar:</label>
+        <select class="form-control" id="prisionero" v-model="visita.prisionero" required>
+          <option v-for="prisionero in prisioneros" :key="prisionero.id" :value="prisionero.nombre">{{ prisionero.nombre
+          }}</option>
+        </select>
+      </div>
+      <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
+      <button class="btn btn-primary">Guardar</button>
+      <button class="btn btn-secondary ml-2" @click="cancelar">Cancelar</button>
+    </form>
+  </div>
 </template>
   
-  
 <script>
-import axios from 'axios'
-
 export default {
-    data() {
-        return {
-            pabellones: [],
-            searchTerm: '',
-            currentPage: 1,
-            itemsPerPage: 10,
-        }
+  data() {
+    return {
+      visita: {
+        ci: '',
+        nombre: '',
+        fechaNacimiento: '',
+        direccion: '',
+        prisionero: ''
+      },
+      prisioneros: [
+        { id: 1, nombre: 'Prisionero 1' },
+        { id: 2, nombre: 'Prisionero 2' },
+        { id: 3, nombre: 'Prisionero 3' },
+        // Agrega más prisioneros aquí según sea necesario
+      ]
+    };
+  },
+  methods: {
+    guardarVisita() {
+      // Aquí puedes simular el guardado de los datos
+      // Puedes mostrar una notificación o realizar otras acciones necesarias
+      console.log('Guardando visita:', this.visita);
+      this.resetearFormulario();
     },
-    async created() {
-        try {
-            const data = {
-
-            };
-
-            const config = {
-                method: 'post',
-                maxBodyLength: Infinity,
-                url: 'https://abbf-34-69-177-245.ngrok-free.app/ListarPabellones',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: data
-            };
-
-            const response = await axios.request(config);
-            console.log(response.data);
-
-            this.pabellones = response.data;
-            console.log(this.pabellones);
-        } catch (error) {
-            console.error(error);
-        }
+    cancelar() {
+      this.resetearFormulario();
     },
-    computed: {
-        paginatedPabellones() {
-            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-            const endIndex = startIndex + this.itemsPerPage;
-            return this.filteredPabellones.slice(startIndex, endIndex);
-        },
-        filteredPabellones() {
-            return this.pabellones.filter(pabellon =>
-                pabellon.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
-            )
-        },
-        totalPages() {
-            return Math.ceil(this.filteredPabellones.length / this.itemsPerPage);
-        },
-    },
-    methods: {
-        goToPage(page) {
-            if (page >= 1 && page <= this.totalPages) {
-                this.currentPage = page;
-            }
-
-        },
-        agregarCeldas() {
-            this.$router.push("/newCeldas")
-        },
-    },
-}
+    resetearFormulario() {
+      this.visita = {
+        ci: '',
+        nombre: '',
+        fechaNacimiento: '',
+        direccion: '',
+        prisionero: ''
+      };
+    }
+  }
+};
 </script>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<style>
+/* Agrega estilos personalizados aquí si es necesario */
+</style>
   

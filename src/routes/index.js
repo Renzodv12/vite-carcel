@@ -21,6 +21,8 @@ import Reportes from "../components/Pabellones/Reportes.vue";
 import cards from "../components/Pabellones/cards.vue";
 import newCeldas from "../components/Pabellones/newCeldas.vue";
 import newPabellones from "../components/Pabellones/newPabellones.vue";
+import Eventos from "../components/Visitas/Eventos.vue";
+import ReportVisitas from "../components/Visitas/ReportVisitas.vue";
 import Visitas from "../components/Visitas/visitas.vue";
 import Prisionero from "../components/admision/Prisionero.vue";
 import newPrisionero from "../components/admision/newPrisionero.vue";
@@ -145,7 +147,9 @@ const routes = [
     name: ReportPrisionero,
     component: ReportPrisionero,
   },
-
+  { path: "/Visitas", name: "Visitas", component: Visitas },
+  { path: "/Eventos", name: "Eventos", component: Eventos },
+  { path: "/ReportVisitas", name: "ReportVisitas", component: ReportVisitas },
 ];
 
 const router = createRouter({
